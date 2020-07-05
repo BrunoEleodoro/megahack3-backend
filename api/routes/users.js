@@ -3,6 +3,7 @@ var router = express.Router();
 var connect = require('../db/connection').connect_db;
 const queries = require('../utils/queries');
 const token = require('../utils/token');
+const { protectedRoute } = require('../middlewares/auth');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -62,6 +63,20 @@ router.post('/signup', async (req, res, next) => {
   res.json({
     status: 200,
     message: 'success'
+  })
+
+})
+
+router.get('/profile', protectedRoute, (req, res, next) => {
+
+  var db = await connect();
+  queries.setDatabase(db);
+
+  // var result = await queries.read({})
+  // console.log('result', result)
+  res.json({
+    status: 200,
+    token: req.headers.authorization
   })
 
 })

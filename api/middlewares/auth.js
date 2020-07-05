@@ -15,6 +15,7 @@ function protectedRoute(req, res, next) {
             } else if (JSON.parse(body).valid != undefined && JSON.parse(body).valid == false) {
                 res.status(403).send({ status: 403, valid: false })
             } else {
+                console.log(JSON.parse(body).payload)
                 next();
             }
         });
