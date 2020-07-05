@@ -1,27 +1,33 @@
 
+//Autenticar
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"login":"bruno","password":"123456"}' \
   http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/auth
 
-
+//Cadastro
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"login":"bruno","password":"123456","points":"0","name":"Breno","badge":"Iniciante","img":"https://avatars2.githubusercontent.com/u/20596317?s=460&u=036a68829e94f9ab8e039fa3a57ea134587470a4&v=4"}' \
   http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/signup
 
+//Dados do Perfil
 curl --header "Content-Type: application/json" \
-  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJicnVubyIsImlhdCI6MTU5Mzk2ODU1NCwiZXhwIjoxNTkzOTcyMTU0fQ.UltrS4GBLoOwlRVspqRwD_Lug19h67cttxzcs1oPIx8" \
+  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJicnVubyIsImlhdCI6MTU5Mzk3MDA0MSwiZXhwIjoxNTkzOTczNjQxfQ.g254xoioj32Mzn_cJ7p5SBkeHBUKOSBWP3ugVD0A2vM" \
   --request GET \
   --data '{}' \
   http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/profile
 
+//
 curl --header "Content-Type: application/json" \
   --header "Authorization: 898112366be32651f2a88188cf4986ed879328f98cf72ea30a86b28ea431775427bc59653644ab75" \
-  --request GET \
-  --data `{\r\n    \"title\": \"O menino maluquinho\",\r\n    \"description\": \"Na grande obra infantil de Ziraldo, verso e desenho contam a hist\u00F3ria de um menino traquinas que aprontava muita confus\u00E3o. Alegria da casa, liderava a garotada, era sabido e um amig\u00E3o. Fazia versinhos, can\u00E7\u00F5es, inventava brincadeiras. Tirava dez em todas as mat\u00E9rias, mas era zero em comportamento. Menino maluquinho, diziam. Mas na verdade ele era um menino feliz. \",\r\n    \"rating_star\": 4.5,\r\n    \"rating_content\": \"Livre\",\r\n    \"thumbnail\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/images\/o-menino-maluquinho\/intermediaria_9788506074237.jpg\",\r\n    \"pages\": [\r\n        {\r\n            \"text\": \"\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/pDu5vKAaYGVqFvviAj2-3Q.jpg\",\r\n            \"pageNumber\": 0\r\n        },\r\n        {\r\n            \"text\": \"\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/86epQZdPnn4-ntzRj3YK6w.jpg\",\r\n            \"pageNumber\": 1\r\n        },\r\n        {\r\n            \"text\": \"Era uma vez um menino maluquinho.\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/bjeREVE832fn7NDveZ1s5w.jpg\",\r\n            \"pageNumber\": 2\r\n        },\r\n        {\r\n            \"text\": \"Ele tinha o olho maior do que a barriga\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/YR95aO2SmxwwJ_m5rouinA.jpg\",\r\n            \"pageNumber\": 3\r\n        },\r\n        {\r\n            \"text\": \"tinha vento nos p\u00E9s\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/CL9OH_VrMFqWVed8bR_DJA.jpg\",\r\n            \"pageNumber\": 4\r\n        },\r\n        {\r\n            \"text\": \"umas pernas enormes \\n (que davam para abra\u00E7ar o mundo)\",\r\n            \"img\": \"https:\/\/s3-sa-east-1.amazonaws.com\/files.arvoredelivros.com.br\/books\/dynamic_images\/OmMK5WftFRIp9wKdzioB8w\/YwDJW25m0XzxjH95p-FZRA.jpg\",\r\n            \"pageNumber\": 5\r\n        }\r\n    ],\r\n    \"themes\": [\r\n        \"Inf\u00E2ncia\",\r\n        \"Amizade\",\r\n        \"Aventuras\",\r\n        \"Brincadeira\"\r\n    ]\r\n}` \
+  --request POST \
+  --data '{"title":"O menino maluquinho","description":"Na grande obra infantil de Ziraldo, verso e desenho contam a história de um menino traquinas que aprontava muita confusão. Alegria da casa, liderava a garotada, era sabido e um amigão. Fazia versinhos, canções, inventava brincadeiras. Tirava dez em todas as matérias, mas era zero em comportamento. Menino maluquinho, diziam. Mas na verdade ele era um menino feliz. ","rating_star":4.5,"rating_content":"Livre","thumbnail":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/images/o-menino-maluquinho/intermediaria_9788506074237.jpg","pages":[{"text":"","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/pDu5vKAaYGVqFvviAj2-3Q.jpg","pageNumber":0},{"text":"","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/86epQZdPnn4-ntzRj3YK6w.jpg","pageNumber":1},{"text":"Era uma vez um menino maluquinho.","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/bjeREVE832fn7NDveZ1s5w.jpg","pageNumber":2},{"text":"Ele tinha o olho maior do que a barriga","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/YR95aO2SmxwwJ_m5rouinA.jpg","pageNumber":3},{"text":"tinha vento nos pés","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/CL9OH_VrMFqWVed8bR_DJA.jpg","pageNumber":4},{"text":"umas pernas enormes (que davam para abraçar o mundo)","img":"https://s3-sa-east-1.amazonaws.com/files.arvoredelivros.com.br/books/dynamic_images/OmMK5WftFRIp9wKdzioB8w/YwDJW25m0XzxjH95p-FZRA.jpg","pageNumber":5}],"themes":["Infância","Amizade","Aventuras","Brincadeira"]}' \
   http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/books/
 
 
-
-
+curl --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJicnVubyIsImlhdCI6MTU5Mzk3MDA0MSwiZXhwIjoxNTkzOTczNjQxfQ.g254xoioj32Mzn_cJ7p5SBkeHBUKOSBWP3ugVD0A2vM" \
+  --request GET \
+  --data '{}' \
+  http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/books/

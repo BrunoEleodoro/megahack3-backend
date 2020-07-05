@@ -47,5 +47,15 @@ router.post('/', basicAuthRoute, async (req, res, next) => {
 
 })
 
+router.delete('/', protectedRoute, async function (req, res, next) {
+  var db = await connect();
+  queries.setDatabase(db);
+  var result = await queries.read({}, {}, {}, 'books')
+  res.json({
+    status: 200,
+    books: result
+  })
+});
+
 
 module.exports = router;

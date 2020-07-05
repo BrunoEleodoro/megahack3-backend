@@ -2,10 +2,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var express_oas_generator = require('express-oas-generator');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
+
 
 var app = express();
 
@@ -19,4 +21,5 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 
+express_oas_generator.init(app, {})
 module.exports = app;
