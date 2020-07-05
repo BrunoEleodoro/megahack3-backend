@@ -1,18 +1,43 @@
 {
-    "title": "Qual Animal e esse?",
-    "img": "",
-    "alternatives": [
+    "title": "Atividade 1",
+    "questions": [
         {
-            "alternative": "Pato"
+            "title": "Qual Animal e esse?",
+            "img": "",
+            "pages": [
+                {
+                    "alternative": "Pato"
+                },
+                {
+                    "alternative": "Gato"
+                },
+                {
+                    "alternative": "Rato"
+                },
+                {
+                    "alternative": "Mato"
+                }
+            ],
+            "correctPosition": "0"
         },
         {
-            "alternative": "Gato"
-        },
-        {
-            "alternative": "Rato"
-        },
-        {
-            "alternative": "Mato"
+            "title": "Quantos anos voce tem?",
+            "img": "",
+            "pages": [
+                {
+                    "alternative": "1"
+                },
+                {
+                    "alternative": "2"
+                },
+                {
+                    "alternative": "3"
+                },
+                {
+                    "alternative": "4"
+                }
+            ],
+            "correctPosition": "1"
         }
     ]
 }

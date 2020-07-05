@@ -18,17 +18,14 @@ router.get('/', protectedRoute, function (req, res, next) {
 
 router.post('/', basicAuthRoute, async (req, res, next) => {
   var title = req.body.title;
-  var img = req.body.img;
-  var alternatives = req.body.alternatives;
-  var correctPosition = req.body.correctPosition;
-  if (title && img && alternatives && correctPosition) {
+  var questions = req.body.questions;
+
+  if (title && questions) {
     var db = await connect();
     queries.setDatabase(db);
     var result = await queries.create({
       title: title,
-      img: img,
-      alternatives: alternatives,
-      correctPosition: correctPosition
+      questions: questions
     }, 'Activities', 'activities')
 
     console.log('result', result)
