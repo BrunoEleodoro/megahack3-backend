@@ -20,15 +20,18 @@ services:
             - MONGO_INITDB_ROOT_PASSWORD=079d1dbdce84c2a92c3b5336465df5c0e45bdc4c
 
     arvore-auth:
-        image: brunoeleodoro/jwt_auth
         restart: always
         container_name: arvore-auth
         ports:
-            - 127.0.0.1:3002:3001
+            - 127.0.0.1:5001:5001
+        build:
+            context: ./api
+            dockerfile: Dockerfile
         networks:
             - arvore-network
         environment:
             - SECRET=0f544c0b6e6d7880a13a275fe5b54c31497b17f82e450842900487bcc86d78fa510
+            - PORT=5001
 
     arvore-api:
         container_name: arvore-api
