@@ -9,7 +9,7 @@ services:
         restart: always
         container_name: arvore-database
         ports:
-            - 127.0.0.1:27018:27018
+            - 127.0.0.1:27018-20719:27017-20719
         volumes:
             - "./database/:/data/db:z"
         networks:
