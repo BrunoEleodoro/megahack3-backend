@@ -8,8 +8,9 @@ services:
         image: mongo
         restart: always
         container_name: arvore-database
+        command: mongod --port 27018
         ports:
-            - 127.0.0.1:27018-20719:27017-20719
+            - 127.0.0.1:27018:27018
         volumes:
             - "./database/:/data/db:z"
         networks:
