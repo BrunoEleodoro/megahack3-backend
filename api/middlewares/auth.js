@@ -1,7 +1,8 @@
 var request = require('request')
 
 module.exports = {
-    protectedRoute: protectedRoute
+    protectedRoute: protectedRoute,
+    basicAuthRoute: basicAuthRoute
 }
 
 function protectedRoute(req, res, next) {
@@ -24,3 +25,13 @@ function protectedRoute(req, res, next) {
     }
 
 }
+
+function basicAuthRoute(req, res, next) {
+    var token = req.headers.authorization
+    if (token == "898112366be32651f2a88188cf4986ed879328f98cf72ea30a86b28ea431775427bc59653644ab75") {
+        next();
+    } else {
+        res.status(403).send({ status: 403, valid: false })
+    }
+}
+
