@@ -11,7 +11,7 @@ services:
         ports:
             - 127.0.0.1:47017:27017
         volumes:
-            - "./database/:/data/db"
+            - "./database/:/data/db:z"
         networks:
             - arvore-network
         environment:
