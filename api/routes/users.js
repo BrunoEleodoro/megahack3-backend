@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 router.post('/auth', async (req, res, next) => {
   var login = req.body.login || "";
   var password = req.body.password || "";
-
+  console.log('req.body', req.body)
   if (login != null && password != null) {
     var db = await connect();
     queries.setDatabase(db);
