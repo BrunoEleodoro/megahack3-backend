@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var connect = require('../db/connection').connect_db;
 const queries = require('../utils/queries');
-
+const token = require('../utils/token');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -15,17 +15,56 @@ router.post('/auth', async (req, res, next) => {
   if (login != null && password != null) {
     var db = await connect();
     queries.setDatabase(db);
-    var users = await queries.read({}, { login: login, password: password }, {}, 'users')
-    res.json({
-      status: 200,
-      users: users
-    })
+    var users = await queries.read({ login: login, password: password }, {}, {}, 'users')
+    if (users.length > 0) {
+      var jwtToken = await token.generateToken(login);
+      res.json({
+        status: 200,
+        token: jwtToken
+      })
+    } else {
+      res.json({
+        status: 201,
+        message: 'login and password must be provided'
+      })
+    }
+
   } else {
     res.json({
       status: 201,
       message: 'login and password must be provided'
     })
   }
+})
+
+
+
+router.post('/signup', async (req, res, next) => {
+  var login = req.body.login;
+  var password = req.body.password;
+  var points = req.body.points;
+  var name = req.body.name;
+  var img = req.body.img;
+  var badge = req.body.badge;
+
+  var db = await connect();
+  queries.setDatabase(db);
+  var res = await queries.create({
+    login: login,
+    password: password,
+    points: points,
+    name: name,
+    img: img,
+    badge: badge
+  }, 'Users', 'users')
+
+  console.log('res', res)
+
+  res.json({
+    status: 200,
+    message: 'sucess'
+  })
+
 })
 
 module.exports = router;

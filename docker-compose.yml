@@ -1,0 +1,49 @@
+version: "3.7"
+
+volumes:
+    prometheus_data: {}
+
+services:
+    arvore-database:
+        image: mongo
+        restart: always
+        container_name: arvore-database
+        ports:
+            - 127.0.0.1:27017:27017
+        volumes:
+            - "./database/:/data/db"
+        networks:
+            - arvore-network
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=bruno
+            - MONGO_INITDB_ROOT_PASSWORD=079d1dbdce84c2a92c3b5336465df5c0e45bdc4c
+
+    arvore-auth:
+        image: brunoeleodoro/jwt_auth
+        restart: always
+        container_name: arvore-auth
+        ports:
+            - 127.0.0.1:3001:3001
+        networks:
+            - arvore-network
+        environment:
+            - SECRET=0f544c0b6e6d7880a13a275fe5b54c31497b17f82e450842900487bcc86d78fa510
+
+    arvore-api:
+        container_name: arvore-api
+        restart: always
+        ports:
+            - 3000:3000
+        depends_on:
+            - arvore-database
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        networks:
+            - arvore-network
+        environment:
+            - PROD=true
+            - MONGODB=mongodb://bruno:079d1dbdce84c2a92c3b5336465df5c0e45bdc4c@arvore-database:27017/arvore-database?authSource=admin
+            
+networks:
+    arvore-network:
