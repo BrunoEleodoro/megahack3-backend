@@ -72,11 +72,11 @@ router.get('/profile', protectedRoute, async (req, res, next) => {
   var db = await connect();
   queries.setDatabase(db);
 
-  // var result = await queries.read({})
-  // console.log('result', result)
+  var result = await queries.read({ login: req.body.userId }, {}, {}, 'users')
+
   res.json({
     status: 200,
-    token: req.headers.authorization
+    token: result[0]
   })
 
 })

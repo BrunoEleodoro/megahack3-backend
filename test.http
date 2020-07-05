@@ -9,3 +9,10 @@ curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"login":"bruno","password":"123456","points":"0","name":"Breno","badge":"Iniciante","img":"https://avatars2.githubusercontent.com/u/20596317?s=460&u=036a68829e94f9ab8e039fa3a57ea134587470a4&v=4"}' \
   http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/signup
+
+curl --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJicnVubyIsImlhdCI6MTU5Mzk2ODU1NCwiZXhwIjoxNTkzOTcyMTU0fQ.UltrS4GBLoOwlRVspqRwD_Lug19h67cttxzcs1oPIx8" \
+  --request GET \
+  --data '{}' \
+  http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/profile
+
