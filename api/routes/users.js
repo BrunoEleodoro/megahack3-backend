@@ -67,7 +67,7 @@ router.post('/signup', async (req, res, next) => {
 
 })
 
-router.get('/profile', protectedRoute, (req, res, next) => {
+router.get('/profile', protectedRoute, async (req, res, next) => {
 
   var db = await connect();
   queries.setDatabase(db);
