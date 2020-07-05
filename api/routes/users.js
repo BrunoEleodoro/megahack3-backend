@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 router.post('/auth', async (req, res, next) => {
   var login = req.body.login || "";
   var password = req.body.password || "";
-  console.log('req.body', req.body)
+
   if (login != null && password != null) {
     var db = await connect();
     queries.setDatabase(db);
@@ -25,7 +25,7 @@ router.post('/auth', async (req, res, next) => {
     } else {
       res.json({
         status: 201,
-        message: 'login and password must be provided'
+        message: 'not found'
       })
     }
 
@@ -49,7 +49,7 @@ router.post('/signup', async (req, res, next) => {
 
   var db = await connect();
   queries.setDatabase(db);
-  var res = await queries.create({
+  var result = await queries.create({
     login: login,
     password: password,
     points: points,
@@ -58,8 +58,7 @@ router.post('/signup', async (req, res, next) => {
     badge: badge
   }, 'Users', 'users')
 
-  console.log('res', res)
-
+  console.log('result', result)
   res.json({
     status: 200,
     message: 'sucess'
