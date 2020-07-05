@@ -61,7 +61,7 @@ router.post('/signup', async (req, res, next) => {
   console.log('result', result)
   res.json({
     status: 200,
-    message: 'sucess'
+    message: 'success'
   })
 
 })
