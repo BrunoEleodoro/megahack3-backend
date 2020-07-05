@@ -1,0 +1,5 @@
+
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"login":"bruno","password":"123456"}' \
+  http://ip172-18-0-15-bs0v625im9m000etk8h0-3000.direct.labs.play-with-docker.com/users/auth

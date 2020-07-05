@@ -10,7 +10,7 @@ function connect_db() {
     return new Promise(function (resolve, reject) {
         if (db_old == null) {
             mongoose.connect(process.env.MONGODB, function (err, db_new) {
-                print('db novo')
+                console.log('db novo')
                 if (err) {
                     console.log('MongoDB erro=' + err)
                     reject(null)
