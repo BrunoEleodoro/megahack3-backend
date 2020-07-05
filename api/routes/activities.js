@@ -6,7 +6,7 @@ const token = require('../utils/token');
 const { protectedRoute, basicAuthRoute } = require('../middlewares/auth');
 
 /* GET activities listing. */
-router.get('/', protectedRoute, function (req, res, next) {
+router.get('/', protectedRoute, async function (req, res, next) {
   var db = await connect();
   queries.setDatabase(db);
   var result = await queries.read({}, {}, {}, 'activities')
