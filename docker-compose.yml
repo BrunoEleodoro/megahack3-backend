@@ -9,7 +9,7 @@ services:
         restart: always
         container_name: arvore-database
         ports:
-            - 127.0.0.1:47017:27017
+            - 127.0.0.1:17017:27017
         volumes:
             - "./database/:/data/db:z"
         networks:
@@ -23,7 +23,7 @@ services:
         restart: always
         container_name: arvore-auth
         ports:
-            - 127.0.0.1:4001:3001
+            - 127.0.0.1:5001:3001
         networks:
             - arvore-network
         environment:
@@ -43,7 +43,7 @@ services:
             - arvore-network
         environment:
             - PROD=true
-            - MONGODB=mongodb://bruno:079d1dbdce84c2a92c3b5336465df5c0e45bdc4c@arvore-database:47017/arvore-database?authSource=admin
+            - MONGODB=mongodb://bruno:079d1dbdce84c2a92c3b5336465df5c0e45bdc4c@arvore-database:17017/arvore-database?authSource=admin
             
 networks:
     arvore-network:
