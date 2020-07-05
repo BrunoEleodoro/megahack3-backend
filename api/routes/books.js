@@ -24,27 +24,32 @@ router.post('/', basicAuthRoute, async (req, res, next) => {
   let thumbnail = req.body.thumbnail
   let pages = req.body.pages
   let themes = req.body.themes
+  if (title && description && rating_star && rating_content && thumbnail && pages && themes) {
+    var db = await connect();
+    queries.setDatabase(db);
 
-  var db = await connect();
-  queries.setDatabase(db);
+    var result = await queries.create({
+      title: title,
+      description: description,
+      rating_star: rating_star,
+      rating_content: rating_content,
+      thumbnail: thumbnail,
+      pages: pages,
+      themes: themes,
+    }, 'Books', 'books')
 
-  var result = await queries.create({
-    title: title,
-    description: description,
-    rating_star: rating_star,
-    rating_content: rating_content,
-    thumbnail: thumbnail,
-    pages: pages,
-    themes: themes,
-  }, 'Books', 'books')
+    console.log('result', result)
 
-  console.log('result', result)
-
-  res.json({
-    status: 200,
-    message: 'success'
-  })
-
+    res.json({
+      status: 200,
+      message: 'success'
+    })
+  } else {
+    res.json({
+      status: 201,
+      message: 'missing parameters'
+    })
+  }
 })
 
 router.delete('/', protectedRoute, async function (req, res, next) {

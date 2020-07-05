@@ -47,23 +47,30 @@ router.post('/signup', async (req, res, next) => {
   var name = req.body.name;
   var img = req.body.img;
   var badge = req.body.badge;
+  if (login && password && points && name && img && badge) {
+    var db = await connect();
+    queries.setDatabase(db);
+    var result = await queries.create({
+      login: login,
+      password: password,
+      points: points,
+      name: name,
+      img: img,
+      badge: badge
+    }, 'Users', 'users')
 
-  var db = await connect();
-  queries.setDatabase(db);
-  var result = await queries.create({
-    login: login,
-    password: password,
-    points: points,
-    name: name,
-    img: img,
-    badge: badge
-  }, 'Users', 'users')
+    console.log('result', result)
+    res.json({
+      status: 200,
+      message: 'success'
+    })
+  } else {
+    res.json({
+      status: 201,
+      message: 'missing parameters'
+    })
+  }
 
-  console.log('result', result)
-  res.json({
-    status: 200,
-    message: 'success'
-  })
 
 })
 

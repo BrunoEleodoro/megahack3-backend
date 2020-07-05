@@ -1,0 +1,18 @@
+{
+    "title": "Qual Animal e esse?",
+    "img": "",
+    "alternatives": [
+        {
+            "alternative": "Pato"
+        },
+        {
+            "alternative": "Gato"
+        },
+        {
+            "alternative": "Rato"
+        },
+        {
+            "alternative": "Mato"
+        }
+    ]
+}
