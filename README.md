@@ -6,10 +6,10 @@
 
 <table>
   <tr>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/4b97859309d398e4-WhatsApp-Image-2020-07-05-at-22.23.30.jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/61f8082cb868aced-WhatsApp-Image-2020-07-05-at-22.23.30-(1).jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/81cb461a96e57e0a-WhatsApp-Image-2020-07-05-at-22.23.30-(2).jpeg" width="200"></td>
-    <td><img src="https://readme-maker.herokuapp.com/uploads/035c44686d347f56-WhatsApp-Image-2020-07-05-at-22.23.30-(3).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28.jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(1).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(2).jpeg" width="200"></td>
+    <td><img src="https://raw.githubusercontent.com/BrunoEleodoro/megahack3-backend/master/docs/images/WhatsApp%20Image%202020-07-05%20at%2022.23.28%20(3).jpeg" width="200"></td>
   </tr>
 </table>
 
