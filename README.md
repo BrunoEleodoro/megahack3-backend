@@ -35,6 +35,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - Docker , DockerCompose
 - MongoDB
 - JWT 
+- [Front-end](https://github.com/victorbilisambipar/MegaHack3edicao)
 
 ## ✍ Autores
 
